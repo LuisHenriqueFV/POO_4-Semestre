@@ -1,4 +1,4 @@
-package Objetivo_1.Model;
+package Model;
 
 public class Aluno {
     private int id;

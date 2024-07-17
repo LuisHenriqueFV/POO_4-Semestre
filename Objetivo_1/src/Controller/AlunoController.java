@@ -1,4 +1,4 @@
-package Objetivo_1.Controller;
+package Controller;
 
 import Objetivo_1.Model.Aluno;
 
