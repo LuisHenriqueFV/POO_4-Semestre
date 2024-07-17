@@ -18,9 +18,9 @@ public class Aluno {
         this.email = email;
     }
 
-    public Aluno(String nome, String sobrenome) {
+    public Aluno(int id, String nome) {
+        this.id = id;
         this.nome = nome;
-        this.sobrenome = sobrenome;
     }
 
     public int getId() {
