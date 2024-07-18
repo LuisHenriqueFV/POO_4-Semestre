@@ -1,36 +1,33 @@
-package Model;
+package model;
 
 public class Produto {
-    private int id;
     private String nome;
     private String descricao;
     private double valor;
     private int estoque;
 
-    public Produto(){
+
+    //Inicio Contructs
+    public Produto() {
     }
 
-    public Produto(int id, String nome, String descricao, double valor, int estoque){
-        this.id = id;
+    public Produto(String nome, String descricao, double valor) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.valor = valor;
+    }
+
+    public Produto(String nome, String descricao, double valor, int estoque) {
         this.nome = nome;
         this.descricao = descricao;
         this.valor = valor;
         this.estoque = estoque;
     }
 
-    public Produto(int id, String nome, double valor){
-        this.id = id;
-        this.nome = nome;
-        this.valor = valor;
-    }
+    //Fim Constructs
 
-    public int getId() {
-        return id;
-    }
+    //Getters e setter
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -64,14 +61,15 @@ public class Produto {
         this.estoque = estoque;
     }
 
+    //Fim getters and setters
+
     @Override
     public String toString() {
-        return "Produto{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
+        return "\nProduto{" +
+                "nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", valor=" + valor +
                 ", estoque=" + estoque +
-                "}\n";
+                '}';
     }
 }

@@ -1,27 +1,15 @@
 package model;
 
-import java.util.UUID;
-
-public class Funcionario {
-    private long id;
+public abstract class  Funcionario {
     private String nome;
     private double salario;
 
     public Funcionario() {
     }
 
-    public Funcionario(long id, String nome, double salario) {
-        this.id = id;
+    public Funcionario(String nome, double salario) {
         this.nome = nome;
         this.salario = salario;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -40,11 +28,13 @@ public class Funcionario {
         this.salario = salario;
     }
 
-    @Override
+    public abstract double getBonus();
+
+
+
     public String toString() {
         return "\nFuncionario{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
+                "nome='" + nome + '\'' +
                 ", salario=" + salario +
                 '}';
     }

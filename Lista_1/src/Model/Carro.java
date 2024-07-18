@@ -1,33 +1,22 @@
-package Model;
+package model;
 
 public class Carro {
-
-    private int id;
     private String marca;
     private String modelo;
     private int anoFabricacao;
 
-    public Carro(){
+    public Carro() {
     }
 
-    public Carro(int id, String marca, String modelo, int anoFabricacao){
-        this.id = id;
+    public Carro(String marca, String modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+
+    public Carro(String marca, String modelo, int anoFabricacao) {
         this.marca = marca;
         this.modelo = modelo;
         this.anoFabricacao = anoFabricacao;
-    }
-
-    public Carro(int id, String marca){
-        this.id = id;
-        this.marca = marca;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getMarca() {
@@ -56,11 +45,10 @@ public class Carro {
 
     @Override
     public String toString() {
-        return "Carro{" +
-                "id=" + id +
-                ", marca='" + marca + '\'' +
+        return "\nCarro{" +
+                "marca='" + marca + '\'' +
                 ", modelo='" + modelo + '\'' +
                 ", anoFabricacao=" + anoFabricacao +
-                "}\n";
+                '}';
     }
 }
