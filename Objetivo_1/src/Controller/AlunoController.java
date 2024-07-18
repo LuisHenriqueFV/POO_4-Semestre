@@ -1,6 +1,6 @@
 package Controller;
 
-import Objetivo_1.Model.Aluno;
+import Model.*;
 
 import java.util.*;
 
