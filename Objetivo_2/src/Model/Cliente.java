@@ -5,7 +5,8 @@ public class Cliente implements Associado {
 
     @Override
     public double lucros(int qdeCotas, double valorCota) {
-        return 0;
+        // Simples exemplo de cálculo de lucros para Cliente
+        return qdeCotas * (valorCota * 0.05);  // Exemplo fictício de cálculo de lucro
     }
 
     public Cliente() {

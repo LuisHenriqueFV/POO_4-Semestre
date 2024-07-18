@@ -28,5 +28,10 @@ public class ContaCorrenteController {
         for (Conta conta : contaList) {
             System.out.println(conta);
         }
+        //Movimente, pelo menos, uma conta corrente, realizando as seguintes operações: depósito R$ 500,00; saque de R$ 400,00;
+        contaCorrente1.deposita(500);
+        contaCorrente1.saca(400);
+        System.out.println(contaCorrente1.getSaldo());
+
     }
 }

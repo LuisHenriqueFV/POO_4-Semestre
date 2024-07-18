@@ -19,7 +19,10 @@ public abstract class Conta {
         }
     }
 
-    public abstract void atualiza(double taxa);
+    public void atualiza(double taxa) {
+        // Atualiza o saldo aplicando uma taxa de rendimento
+        this.saldo *= (1 + taxa / 100);
+    }
 
     public double getSaldo() {
         return saldo;

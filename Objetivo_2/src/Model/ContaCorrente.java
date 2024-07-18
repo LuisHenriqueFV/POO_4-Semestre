@@ -17,7 +17,8 @@ public class ContaCorrente extends Conta implements Associado {
 
     @Override
     public double lucros(int qdeCotas, double valorCota) {
-        return qdeCotas * valorCota;
+        // Simples exemplo de cálculo de lucros para Conta Corrente
+        return qdeCotas * (valorCota * 0.1);  // Exemplo fictício de cálculo de lucro
     }
 
     @Override
