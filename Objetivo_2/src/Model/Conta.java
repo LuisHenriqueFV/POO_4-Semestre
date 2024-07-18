@@ -2,35 +2,31 @@ package Model;
 
 public abstract class Conta {
     protected double saldo;
-    public void depositar(double valor){
-        System.out.println("Depositando...");
-    }
-    public void saca(double valor){
-        System.out.println("Sacando...");
-    }
-    public void atualiza(double valor){
-        System.out.println("Atualizando...");
+
+    public Conta(double saldoInicial) {
+        this.saldo = saldoInicial;
     }
 
-    public Conta() {
+    public void deposita(double valor) {
+        this.saldo += valor;
     }
 
-    public Conta(double saldo) {
-        this.saldo = saldo;
+    public void saca(double valor) {
+        if (this.saldo >= valor) {
+            this.saldo -= valor;
+        } else {
+            System.out.println("Saldo insuficiente!");
+        }
     }
+
+    public abstract void atualiza(double taxa);
 
     public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
     @Override
     public String toString() {
-        return "\nConta{" +
-                "saldo=" + saldo +
-                '}';
+        return "Conta [saldo=" + saldo + "]";
     }
 }
