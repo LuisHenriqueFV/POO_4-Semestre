@@ -144,6 +144,32 @@ public class PortfolioController {
             System.out.println(imovel.getClass().getSimpleName() + " - Preço de Cotação: R$ " + imovel.getPrecoDeCotacao());
         }
 
+        // --------------------Questão I--------------------
+        System.out.println("\nUnidades da Imobiliária por Previsão de Faturamento em Ordem Decrescente:");
+
+        // Criar uma lista para armazenar as unidades
+        List<Imobiliaria> listaUnidades = new ArrayList<>();
+
+        // Filtrar as instâncias de Imobiliaria e adicioná-las à lista
+        for (Portfolio item : listaPortfolio) {
+            if (item instanceof Imobiliaria) {
+                listaUnidades.add((Imobiliaria) item);
+            }
+        }
+
+        // Ordenar a listaUnidades por previsão de faturamento em ordem decrescente
+        Collections.sort(listaUnidades, new Comparator<Imobiliaria>() {
+            @Override
+            public int compare(Imobiliaria u1, Imobiliaria u2) {
+                return Double.compare(u2.getPrevisaoDeFaturamento(), u1.getPrevisaoDeFaturamento()); // Ordem decrescente
+            }
+        });
+
+        // Imprimir as unidades ordenadas
+        for (Imobiliaria unidade : listaUnidades) {
+            System.out.println(unidade.getClass().getSimpleName() + " - Previsão de Faturamento: R$ " + unidade.getPrevisaoDeFaturamento());
+        }
+
 
 
 
