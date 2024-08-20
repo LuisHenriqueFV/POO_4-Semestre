@@ -1,2 +1,6 @@
-package model;public interface Portfolio {
+package model;
+
+public interface Portfolio {
+    Double getITBI();
 }
+
