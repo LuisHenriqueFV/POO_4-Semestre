@@ -23,7 +23,7 @@ public class Apartamento extends Imovel{
 
     @Override
     public Double getITBI() {
-        return 0.0;
+        return this.getPrecoDeCotacao() * 0.04;
     }
 
     @Override

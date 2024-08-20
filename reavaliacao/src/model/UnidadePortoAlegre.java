@@ -23,7 +23,7 @@ public class UnidadePortoAlegre extends Imobiliaria{
 
     @Override
     public Double getITBI() {
-        return 0.0;
+        return this.getPrevisaoDeFaturamento() * 0.025;
     }
 
     @Override

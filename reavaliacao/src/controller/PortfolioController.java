@@ -3,6 +3,8 @@ package controller;
 import model.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class PortfolioController {
     public static void main(String[] args) {
@@ -10,13 +12,13 @@ public class PortfolioController {
         // Criação de duas instâncias da classe Casa
         Casa casa1 = new Casa(
                 "Rua", "Flores da Cunha", 789, "Casa A",
-                "Jardim América", "97050-100", "Santa Maria",
+                "Jardim América", "97050-100", "Pelotas",
                 250.0, 750000.0, 700000.0, 350.0
         );
 
         Casa casa2 = new Casa(
                 "Travessa", "Castro Alves", 321, "Casa B",
-                "São José", "97500-200", "Uruguaiana",
+                "São José", "97500-200", "Pelotas",
                 180.0, 580000.0, 540000.0, 280.0
         );
 
@@ -76,6 +78,75 @@ public class PortfolioController {
         for (Portfolio item : listaPortfolio) {
             System.out.println(item);
         }
+
+
+        // --------------------Questão F--------------------
+        System.out.println("\nEstimativas de ITBI:");
+        for (Portfolio item : listaPortfolio) {
+            if (item instanceof Casa || item instanceof Apartamento || item instanceof UnidadePortoAlegre || item instanceof UnidadePelotas) {
+                double itbiEstimado = item.getITBI();
+                System.out.println(item.getClass().getSimpleName() + " - Estimativa de ITBI: R$ " + itbiEstimado);
+            }
+        }
+
+        // --------------------Questão G--------------------
+        double previsaoFaturamentoPelotas = 0.0;
+        double previsaoFaturamentoPortoAlegre = 0.0;
+
+        // Percorrendo a lista para calcular a previsão de faturamento e o ITBI para cada unidade
+        for (Portfolio item : listaPortfolio) {
+            if (item instanceof Imovel) {
+                double precoCotacao = ((Imovel) item).getPrecoDeCotacao();
+                String cidade = ((Imovel) item).getCidade();
+
+                // Verificando a cidade e somando à previsão de faturamento correspondente
+                if (cidade.equals("Pelotas")) {
+                    previsaoFaturamentoPelotas += precoCotacao;
+                } else if (cidade.equals("Porto Alegre")) {
+                    previsaoFaturamentoPortoAlegre += precoCotacao;
+                }
+            }
+        }
+
+        // Calculando o ITBI estimado para cada unidade com base na previsão de faturamento
+        double itbiEstimadoPelotas = previsaoFaturamentoPelotas * 0.02; // 2% para Pelotas
+        double itbiEstimadoPortoAlegre = previsaoFaturamentoPortoAlegre * 0.025; // 2.5% para Porto Alegre
+
+        // Imprimindo os resultados
+        System.out.println("\nPrevisão de Faturamento e ITBI Estimado por Unidade da Imobiliária:");
+        System.out.println("Unidade Pelotas:");
+        System.out.println("Previsão de Faturamento: R$ " + previsaoFaturamentoPelotas);
+        System.out.println("ITBI Estimado: R$ " + itbiEstimadoPelotas);
+
+        System.out.println("\nUnidade Porto Alegre:");
+        System.out.println("Previsão de Faturamento: R$ " + previsaoFaturamentoPortoAlegre);
+        System.out.println("ITBI Estimado: R$ " + itbiEstimadoPortoAlegre);
+
+        // --------------------Questão H--------------------
+        // Ordenando a lista de imóveis por preço de cotação em ordem decrescente
+        List<Imovel> listaImoveis = new ArrayList<>();
+        for (Portfolio item : listaPortfolio) {
+            if (item instanceof Imovel) {
+                listaImoveis.add((Imovel) item);
+            }
+        }
+
+        Collections.sort(listaImoveis, new Comparator<Imovel>() {
+            @Override
+            public int compare(Imovel i1, Imovel i2) {
+                return Double.compare(i2.getPrecoDeCotacao(), i1.getPrecoDeCotacao()); // Ordem decrescente
+            }
+        });
+
+        // Imprimindo os imóveis ordenados
+        System.out.println("\nImóveis por Preço de Cotação em Ordem Decrescente:");
+        for (Imovel imovel : listaImoveis) {
+            System.out.println(imovel.getClass().getSimpleName() + " - Preço de Cotação: R$ " + imovel.getPrecoDeCotacao());
+        }
+
+
+
+
     }
 }
 

@@ -24,7 +24,7 @@ public class UnidadePelotas extends Imobiliaria{
 
     @Override
     public Double getITBI() {
-        return 0.0;
+        return this.getPrevisaoDeFaturamento() * 0.02;
     }
 
     @Override

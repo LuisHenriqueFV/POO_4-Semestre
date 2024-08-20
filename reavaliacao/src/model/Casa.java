@@ -25,7 +25,7 @@ public class Casa extends Imovel{
 
     @Override
     public Double getITBI() {
-        return 0.0;
+        return this.getPrecoDeVenda() * 0.03;
     }
 
 
