@@ -10,6 +10,7 @@ public class Fornecimento {
     private Produto produto;
     private Fornecedor fornecedor;
 
+
     public Fornecimento() {
     }
 

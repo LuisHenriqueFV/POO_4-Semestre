@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fornecedor {
-    private long cnpj;
+    private String cnpj;
     private String razaoSocial;
     private String nomeFantasia;
     private String email;
@@ -14,7 +14,8 @@ public class Fornecedor {
     public Fornecedor() {
     }
 
-    public Fornecedor(long cnpj, String razaoSocial, String nomeFantasia, String email, String telefone, List<Produto> produtoList) {
+
+    public Fornecedor(String cnpj, String razaoSocial, String nomeFantasia, String email, String telefone, List<Produto> produtoList) {
         this.cnpj = cnpj;
         this.razaoSocial = razaoSocial;
         this.nomeFantasia = nomeFantasia;
@@ -23,11 +24,11 @@ public class Fornecedor {
         this.produtoList = produtoList;
     }
 
-    public long getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(long cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
@@ -73,8 +74,8 @@ public class Fornecedor {
 
     @Override
     public String toString() {
-        return "\nFornecedor{" +
-                "cnpj=" + cnpj +
+        return "Fornecedor{" +
+                "cnpj='" + cnpj + '\'' +
                 ", razaoSocial='" + razaoSocial + '\'' +
                 ", nomeFantasia='" + nomeFantasia + '\'' +
                 ", email='" + email + '\'' +
